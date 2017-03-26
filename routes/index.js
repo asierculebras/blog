@@ -5,7 +5,7 @@ var blogController = require('../controllers/blog_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'AsiBlog' });
+  res.render('index');
   	console.log("Peticion get de la pagina views/index desde routes/index");
 });
 
