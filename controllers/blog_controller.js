@@ -12,3 +12,10 @@ exports.check = function(req, res, next) {
 	var result = req.query.answer === 'Roma' ? 'Correcta' : 'Incorrecta';
 	res.render('quizzes/result', {result: result, answer: answer});
 };
+
+// GET /autor
+exports.autor = function(req, res, next) {
+
+	var autor = req.query.autor || "Asier Culebras";
+	res.render('quizzes/autor', {autor: autor});
+};

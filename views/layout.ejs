@@ -5,27 +5,38 @@
   <title> Blog </title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' type='text/css' 
+  media='only screen and (min-width: 800px) and (min-device-width: 600px)' 
+  href='/stylesheets/wide.css' />
+   <link rel='stylesheet' type='text/css' media='only screen and (max-width: 480px)' 
+   href='/stylesheets/smartphone.css' />
+
 </head> 
 
 <body>
-  <header>
-    <h2>Quiz: el juego de las preguntas</h2>
+
+ <div id="page"> 
+  <header class="main">
+    <h2>Quiz:<span class="no-narrow"> el juego de las preguntas</span></h2>
   </header>
 
-  <UL>
-    <LI><a href="/">Inicio</a>
-    <LI><a href="/question">Preguntas</a>
-  </UL>
+    <nav class="main" role="navigation">
+    <a href="/">Inicio</a>
+    <a href="/question">Preguntas</a>
+    <a href="/autor">Autor</a>
 
-  <section>
+  </nav>
+
+  <section class="main">
     <div>
       <%- body %>
     </div>
   </section>
 
-  <footer>
+  <footer class="main">
     <a href="http://es.wikipedia.org/wiki/Quiz">
       ¿Qué es un Quiz?</a>
   </footer>
+ </div>
 </body> 
 </html>

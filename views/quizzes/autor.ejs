@@ -1,0 +1,13 @@
+ <p>
+     El autor de este Blog es <strong> <%= autor%> </strong>
+  </p>
+
+  <p>
+     <a href="https://www.linkedin.com/in/asier-culebras/"> <img src="images/lk.png"> </a>
+  </p>
+
+   <form method="get" action="/autor">        
+      Cambia el nombre del autor <p>
+      <input type="text" name="autor" value="<%= autor %>" placeholder="Responda aquí"/>
+      <input type="submit" value="Cambiar">
+    </form>

@@ -1,8 +1,29 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
+*                    { margin: 0; padding: 0; }
+
+body                 { font: 16px Georgia, serif; 
+                       color: white;
+                     }
+
+.page                 { margin: 2% auto; 
+                        color: white;}
+
+.main                 { border: 1px solid #999; 
+                        padding: 1%;
+                        margin-bottom: 1px;
+                        color: black;
+                        background: #eee;
+                      }
+
+a                    { color: #00B7FF; }
+
+
+section > div        { padding: 20px; 
+					   text-align: center;}
+
+header               { text-align: center;}
+nav                  { text-align: center;}
+section              { text-align: left;}
+footer               { text-align: center;}
+
+nav a                { margin: 0px 10px 0px 0px;}

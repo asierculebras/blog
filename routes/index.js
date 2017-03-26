@@ -11,5 +11,8 @@ router.get('/', function(req, res) {
 
 router.get('/question', blogController.question);
 router.get('/check',    blogController.check);
+router.get('/autor',    blogController.autor);
+
+
 
 module.exports = router;

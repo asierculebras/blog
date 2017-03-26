@@ -1,0 +1,13 @@
+body { background: #999; }
+
+#page   { background: #eee;}
+
+#page:after { content: "Wide Layout"; }
+
+nav       { float: left; width: 100%;}
+
+section    { float: right; width: 100%;}
+
+footer    { clear: both;}
+
+nav a     { display: block; text-align: left;}
