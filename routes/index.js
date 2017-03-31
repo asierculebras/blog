@@ -12,12 +12,16 @@ router.get('/', function(req, res) {
 // Autoload de rutas que usen :quizId
 router.param('quizId', blogController.load);  // autoload :quizId
 
-// Definición de rutas de /quizzes
+// Definición de rutas de /quizzes cuando se invoca un metodo GET
 router.get('/quizzes',                     blogController.index);
 router.get('/quizzes/:quizId(\\d+)',       blogController.show);
 router.get('/quizzes/:quizId(\\d+)/check', blogController.check);
 router.get('/autor',    blogController.autor);
+router.get('/quizzes/new',    blogController.new);
 router.get('/buscador',    blogController.buscar);
+
+// Definición de rutas de /quizzes cuando se invoca un metodo POST para añadir cosas a quiz
+router.post('/quizzes',    blogController.create);
 
 
 

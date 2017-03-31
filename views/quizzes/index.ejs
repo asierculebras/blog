@@ -1,6 +1,6 @@
 
 
-
+<div class=centraTabla>
 <table>
 
   <% for (var i in quizzes) { %>        
@@ -12,14 +12,17 @@
   <% } %>
 
 <hr style="color: #0056b2;" />
-<table>
+<tr>
+<td>
   <form method="get" action="/quizzes" > 
      <p>¿Buscas alguna pregunta ?</p>
      <input type="text" name="search" value ="<%= search%>">
      <input type="submit" value="Enviar" ></div><div> 
  </form>
-
+</td>
+</tr>
 </table>
-</table>
+</div>
+<a href="/quizzes/new"><button type= button>Crear pregunta</button<</a>
 
 
