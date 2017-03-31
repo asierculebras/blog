@@ -1,0 +1,8 @@
+<form method="get" action="/quizzes" > 
+     <p>¿Qué quieres buscar?</p>
+    <!-- <input class=textBuscador type="text" name="search" value ="<%= search%>"> -->
+     <input type="text" name="search" value="<%= search%>" onclick="if(this.value=='<%= search%>') this.value=''" onblur="if(this.value=='') this.value='<%= search%>'"  />
+
+
+     <input type="submit" value="Encuentralo!" ></div><div> 
+ </form>

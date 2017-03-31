@@ -17,6 +17,8 @@ router.get('/quizzes',                     blogController.index);
 router.get('/quizzes/:quizId(\\d+)',       blogController.show);
 router.get('/quizzes/:quizId(\\d+)/check', blogController.check);
 router.get('/autor',    blogController.autor);
+router.get('/buscador',    blogController.buscar);
+
 
 
 module.exports = router;

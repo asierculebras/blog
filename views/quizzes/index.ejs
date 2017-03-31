@@ -2,13 +2,6 @@
 
 
 <table>
-<form method="get" action="/quizzes" > 
-     <p>¿Qué palabra quieres buscar?</p>
-     <input type="text" name="search" value ="<%= search%>">
-     <input type="submit" value="Enviar" ></div><div> 
- </form>
-
-<hr style="color: #0056b2;" />
 
   <% for (var i in quizzes) { %>        
      <tr>
@@ -17,4 +10,16 @@
         </td>
      </tr> 
   <% } %>
+
+<hr style="color: #0056b2;" />
+<table>
+  <form method="get" action="/quizzes" > 
+     <p>¿Buscas alguna pregunta ?</p>
+     <input type="text" name="search" value ="<%= search%>">
+     <input type="submit" value="Enviar" ></div><div> 
+ </form>
+
 </table>
+</table>
+
+

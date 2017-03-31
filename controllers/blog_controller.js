@@ -43,6 +43,21 @@ exports.index = function(req, res, next) {
   
     }
    };
+exports.buscar = function(req, res, next) {
+	var search = req.query.search || 'Escribe lo que buscas';
+	search1 = "%" + search.replace("","%") +"%";
+      models.Post.findAll({where: ["question like ?", search1]})
+      .then(function(quizzes) {
+       quizzes.sort();
+        res.render('buscador.ejs', { quizzes: quizzes, search:search});
+  
+      })
+      .catch(function(error) {
+        next(error);
+      });
+   };
+  
+
 
 // GET /quizzes/:id
 exports.show = function(req, res, next) {
