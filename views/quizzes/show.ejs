@@ -1,0 +1,12 @@
+<p>
+  <form method="get" action="/quizzes/<%= quiz.id %>/check">        
+    <p>
+      Pregunta: <%= quiz.question %>
+    </p>
+
+    <p>
+      <input type="text" name="answer" value="<%= answer %>" placeholder="Respuesta" />
+      <input type="submit" value="Comprobar">
+    </p>
+  </form>
+</p>

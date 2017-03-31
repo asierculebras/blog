@@ -9,10 +9,14 @@ router.get('/', function(req, res) {
   	console.log("Peticion get de la pagina views/index desde routes/index");
 });
 
-router.get('/question', blogController.question);
-router.get('/check',    blogController.check);
-router.get('/autor',    blogController.autor);
+// Autoload de rutas que usen :quizId
+router.param('quizId', blogController.load);  // autoload :quizId
 
+// Definición de rutas de /quizzes
+router.get('/quizzes',                     blogController.index);
+router.get('/quizzes/:quizId(\\d+)',       blogController.show);
+router.get('/quizzes/:quizId(\\d+)/check', blogController.check);
+router.get('/autor',    blogController.autor);
 
 
 module.exports = router;

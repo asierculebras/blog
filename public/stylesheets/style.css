@@ -26,4 +26,21 @@ nav                  { text-align: center;}
 section              { text-align: left;}
 footer               { text-align: center;}
 
+.github { color: black;
+ 		link { font-size: 15px }
+ 		visited { font-size: 15px }
+ 		hover { font-size: 25px }
+ 					
+ 		}
+
+
+div.centraTabla{
+text-align: center;
+}
+
+div.centraTabla table {
+margin: 0 auto;
+text-align: left;
+}
+
 nav a                { margin: 0px 10px 0px 0px;}

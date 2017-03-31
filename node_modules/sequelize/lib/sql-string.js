@@ -48,7 +48,7 @@ SqlString.escape = function(val, timeZone, dialect, format) {
   }
 
   if (Array.isArray(val)) {
-    var escape = _.partial(SqlString.escape, _, timeZone, dialect, format);
+    var escape = _.partialRight(SqlString.escape, timeZone, dialect);
     if (dialect === 'postgres' && !format) {
       return dataTypes.ARRAY.prototype.stringify(val, {escape: escape});
     }

@@ -1,0 +1,17 @@
+
+
+<% if ( quizzes.length === 0) {   %>
+   <p> No se encuentra ninguna pregunta relaccionada con <i><strong><%= search %> </strong></i> </p>  
+      <% } %>
+
+
+<table>
+   <% for (var i in quizzes) { %>   
+
+      <tr> 
+         <td>
+            <a href="/quizzes/<%= quizzes[i].id %>"><%= quizzes[i].question %></a>
+         </td>
+      </tr> 
+   <% } %>
+ </table>
