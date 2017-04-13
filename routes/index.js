@@ -19,6 +19,8 @@ router.get('/quizzes/:quizId(\\d+)/check', blogController.check);
 router.get('/autor',    blogController.autor);
 router.get('/quizzes/new',    blogController.new);
 router.get('/buscador',    blogController.buscar);
+router.get('/quizzes/:quizId(\\d+)/edit',  blogController.edit);
+router.put('/quizzes/:quizId(\\d+)',       blogController.update);
 
 // Definición de rutas de /quizzes cuando se invoca un metodo POST para añadir cosas a quiz
 router.post('/quizzes',    blogController.create);
