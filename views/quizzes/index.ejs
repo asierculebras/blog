@@ -11,6 +11,12 @@
         <td>
            <a href="/quizzes/<%= quizzes[i].id %>/edit"><button>editar</button></a>
         </td>
+        <td>
+           <a href="/quizzes/<%= quizzes[i].id %>?_method=DELETE" 
+              onClick="return confirm('Seguro que quieres borrar la pregunta: <%= quizzes[i].question %>');">
+              <button>borrar</button>
+           </a>
+        </td>
      </tr> 
   <% } %>
 
