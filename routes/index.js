@@ -3,6 +3,8 @@ var router = express.Router();
 
 var blogController = require('../controllers/blog_controller');
 var commentController = require('../controllers/comment_controller');
+var userController = require('../controllers/user_controller');
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -12,6 +14,19 @@ router.get('/', function(req, res) {
 
 // Autoload de rutas que usen :quizId
 router.param('quizId', blogController.load);  // autoload :quizId
+router.param('userId', userController.load);  // autoload :userId
+
+
+
+// Definición de rutas de cuenta
+router.get('/users',                    userController.index);   // listado usuarios
+router.get('/users/:userId(\\d+)',      userController.show);    // ver un usuario
+router.get('/users/new',                userController.new);     // formulario sign un
+router.post('/users',                   userController.create);  // registrar usuario
+router.get('/users/:userId(\\d+)/edit', userController.edit);     // editar información de cuenta
+router.put('/users/:userId(\\d+)',      userController.update);   // actualizar información de cuenta
+router.delete('/users/:userId(\\d+)',   userController.destroy);  // borrar cuenta
+
 
 // Definición de rutas de /quizzes cuando se invoca un metodo GET
 router.get('/quizzes',                     blogController.index);
