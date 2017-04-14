@@ -6,17 +6,18 @@ var Sequelize = require('sequelize');
 
 // Autoload el quiz asociado a :quizId
 exports.load = function(req, res, next, quizId) {
-	models.Post.findById(quizId)
-  		.then(function(quiz) {
-      		if (quiz) {
-        		req.quiz = quiz;
-        		next();
-      		} else { 
-      			next(new Error('No existe quizId=' + quizId));
-      		}
+  models.Post.findById(quizId, { include: [ models.Comment ] })
+      .then(function(quiz) {
+          if (quiz) {
+            req.quiz = quiz;
+            next();
+          } else { 
+            throw new Error('No existe quizId=' + quizId);
+          }
         })
         .catch(function(error) { next(error); });
 };
+
 
 // GET /quizzes
 exports.index = function(req, res, next) {
@@ -64,7 +65,7 @@ exports.buscar = function(req, res, next) {
 
 // GET /quizzes/:id
 exports.show = function(req, res, next) {
-	models.Post.findById(req.params.quizId)
+	models.Post.findById(req.params.quizId, { include: [ models.Comment ] })
 		.then(function(quiz) {
 			if (quiz) {
 				var answer = req.query.answer || '';

@@ -1,0 +1,21 @@
+
+<p>
+Añadir nuevo comentario: 
+</p>
+
+<p>
+    <form method="POST" action="/quizzes/<%=quiz.id%>/comments/">
+        <input type="text" id="comment" name="comment[text]" value="" placeholder="Comentario" /> <p>
+        <button type="submit">Enviar</button>
+    </form>
+</p>
+
+ <p></p>
+ <p><strong>Comentarios anteriores: </strong></p>
+ <ul>
+ <% for (var i in quiz.Comments) { %>
+ 	<li> <%= quiz.Comments[i].text %> </li>
+ 	<% } %>
+ </ul>
+ <p></p>
+ <a href="/quizzes/<%=quiz.id%>"><button type="button">Cancelar</button></a> 

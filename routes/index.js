@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var blogController = require('../controllers/blog_controller');
+var commentController = require('../controllers/comment_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -22,6 +23,12 @@ router.get('/buscador',    blogController.buscar);
 router.get('/quizzes/:quizId(\\d+)/edit',  blogController.edit);
 router.put('/quizzes/:quizId(\\d+)',       blogController.update);
 router.delete('/quizzes/:quizId(\\d+)',    blogController.destroy);
+
+
+
+router.get('/quizzes/:quizId(\\d+)/comments/new',  commentController.new);
+router.post('/quizzes/:quizId(\\d+)/comments',     commentController.create);
+
 
 // Definición de rutas de /quizzes cuando se invoca un metodo POST para añadir cosas a quiz
 router.post('/quizzes',    blogController.create);

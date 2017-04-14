@@ -10,3 +10,29 @@
     </p>
   </form>
 </p>
+
+<BR>
+
+<p><strong>Comentarios:</strong></p>
+
+<ul>
+<% if (quiz.Comments.length === 0) {   %>
+<p> Este Post no tiene ningub comentario </p>
+<% } %>
+<% for (var i in quiz.Comments) { %>
+	<li> <%=quiz.Comments[i].text %> </li>
+<% } %>
+</ul>
+
+<BR>
+<BR>
+
+<% include ../comments/new.ejs %>
+
+<!--
+<p>
+  <a href="/quizzes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a>
+</p>
+-->
+<BR>
+<BR>

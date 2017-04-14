@@ -25,28 +25,20 @@ var sequelize = new Sequelize(url,
 // Importar la definicion de la tabla Post de post.js
 var Post = sequelize.import(path.join(__dirname,'post'));
 
+// Importar la definicion de la tabla Comments de comment.js
+var Comment = sequelize.import(path.join(__dirname,'comment'));
 
-// sequelize.sync() crea e inicializa tabla de posts en DB
-sequelize.sync()
-    .then(function() {
-        // Ya se han creado las tablas necesarias.
-        return Post.count()
-                .then(function (c) {
-                    if (c === 0) {   // la tabla se inicializa solo si está vacía
-                        return Post.bulkCreate([ {question: 'Capital de Italia',   answer: 'Roma'},
-                                                 {question: 'Capital de Portugal', answer: 'Lisboa'},
-                                                 {question: 'Capital de España', answer: 'Madrid'}
-                                              ])
-                                   .then(function() {
-                                        console.log('Base de datos inicializada con  2 datos');
-                                    });
-                    }
-                });
-    })
-    .catch(function(error) {
-        console.log("Error Sincronizando las tablas de la BBDD:", error);
-        process.exit(1);
-    });
+// Importar la definicion de la tabla Usuarios de User.js
+var User = sequelize.import(path.join(__dirname,'user'));
+
+// Relaciones entre modelos
+Comment.belongsTo(Post);
+Post.hasMany(Comment);
+
+
 
 
 exports.Post = Post; // exportar definición de tabla Post
+exports.Comment = Comment; // exportar definición de tabla Comments
+exports.User = User; // exportar definición de tabla Usuasios
+
