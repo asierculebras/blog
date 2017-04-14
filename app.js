@@ -28,10 +28,22 @@ app.use(session({secret: "Quiz 2016",
                  saveUninitialized: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method', {methods: ["POST", "GET"]}));
-console.log("Se va a mostrar el favicon")
+console.log("Se va a mostrar el favicon");
+
+
 
 app.use(partials());
 app.use(flash());
+
+
+// Helper dinamico:
+app.use(function(req, res, next) {
+
+   // Hacer visible req.session en las vistas
+   res.locals.session = req.session;
+
+   next();
+});
 
 app.use('/', routes);
 

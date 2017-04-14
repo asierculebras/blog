@@ -60,9 +60,9 @@ exports.create = function(req, res, next) {
             } else {
                 // Guardar en la BBDD
                 return user.save({fields: ["username", "password", "salt"]})
-                    .then(function(user) { // Renderizar pagina de usuarios
+                    .then(function(user) { 
                         req.flash('success', 'Usuario creado con éxito.');
-                        res.redirect('/users');
+                        res.redirect('/session'); // Redireccion a la página de iniciar sesión.
                     })
                     .catch(Sequelize.ValidationError, function(error) {
                         req.flash('error', 'Errores en el formulario:');
@@ -121,8 +121,15 @@ exports.update = function(req, res, next) {
 exports.destroy = function(req, res, next) {
     req.user.destroy()
         .then(function() {
+
+            // Borrando usuario logeado.
+            if (req.session.user && req.session.user.id === req.user.id) {
+                // borra la sesión y redirige a /
+                delete req.session.user;
+            }
+
             req.flash('success', 'Usuario eliminado con éxito.');
-            res.redirect('/users');
+            res.redirect('/');
         })
         .catch(function(error){ 
             next(error); 

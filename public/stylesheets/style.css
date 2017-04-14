@@ -32,6 +32,8 @@ nav                  { text-align: center;}
 section              { text-align: left;}
 footer               { text-align: center;}
 
+.right               {float: right;}
+
 .github { color: black;
  		link { font-size: 15px }
  		visited { font-size: 15px }

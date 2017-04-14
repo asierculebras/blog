@@ -4,6 +4,7 @@ var router = express.Router();
 var blogController = require('../controllers/blog_controller');
 var commentController = require('../controllers/comment_controller');
 var userController = require('../controllers/user_controller');
+var sessionController = require('../controllers/session_controller');
 
 
 /* GET home page. */
@@ -16,6 +17,11 @@ router.get('/', function(req, res) {
 router.param('quizId', blogController.load);  // autoload :quizId
 router.param('userId', userController.load);  // autoload :userId
 
+
+// Definición de rutas de sesion
+router.get('/session',    sessionController.new);     // formulario login
+router.post('/session',   sessionController.create);  // crear sesión
+router.delete('/session', sessionController.destroy); // destruir sesión
 
 
 // Definición de rutas de cuenta
